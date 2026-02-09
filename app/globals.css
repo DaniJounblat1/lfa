@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 20% 97%;
+  --foreground: 220 40% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 40% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 40% 10%;
+  --primary: 175 70% 45%;
+  --primary-foreground: 220 40% 10%;
+  --secondary: 210 50% 10%;
+  --secondary-foreground: 175 70% 45%;
+  --muted: 220 15% 92%;
+  --muted-foreground: 220 10% 45%;
+  --accent: 175 50% 90%;
+  --accent-foreground: 220 40% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 220 15% 88%;
+  --input: 220 15% 88%;
+  --ring: 175 70% 45%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 220 50% 6%;
+  --foreground: 175 30% 95%;
+  --card: 220 45% 8%;
+  --card-foreground: 175 30% 95%;
+  --popover: 220 45% 8%;
+  --popover-foreground: 175 30% 95%;
+  --primary: 175 70% 45%;
+  --primary-foreground: 220 50% 6%;
+  --secondary: 210 50% 12%;
+  --secondary-foreground: 175 70% 45%;
+  --muted: 220 40% 15%;
+  --muted-foreground: 220 15% 60%;
+  --accent: 220 40% 15%;
+  --accent-foreground: 175 30% 95%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 220 40% 15%;
+  --input: 220 40% 15%;
+  --ring: 175 70% 45%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(10, 46, 45, 0.9), rgba(10, 46, 45, 0.7)), url("/images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: #0cded7;
+}
+
+/* RTL Support */
+.rtl .section-heading::after {
+  left: auto;
+  right: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("/images/lfa-logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(10, 20, 30, 0.7), rgba(10, 20, 30, 0.85));
+  z-index: -1;
+}
+
+/* FIFA Card animations */
+@keyframes cardShine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.fifa-card-shine {
+  animation: cardShine 3s infinite;
+}
