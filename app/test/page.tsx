@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import trainees from '@/data/academyData1.json'; 
+import trainees from '@/data/academyData.json'; 
 import { useLanguage } from "@/contexts/language-context";
 import { Search } from "lucide-react";
 
@@ -10,18 +10,18 @@ import { Search } from "lucide-react";
 const layouts = {
   back: {
     bg: "/images/cardbg.png",
-    ratingPos: "top-[15%] left-[18%]",
-    imagePos: "top-[20%] w-[210px]",
-    namePos: "top-[62%]",
-    statsPos: "bottom-[20%]",
-    textColor: "text-[#2a1d0a]" 
+    ratingPos: "top-[14%] left-[9%]", 
+    imagePos: "top-[17%] w-[270px]",   
+    namePos: "top-[65%]",
+    statsPos: "bottom-[15%]",
+    textColor: "text-[offwhite]" 
   },
   front: {
     bg: "/images/cardbg1.png",
-    ratingPos: "top-[15%] left-[18%]", 
-    imagePos: "top-[22%] w-[210px]",   
-    namePos: "top-[62%]",
-    statsPos: "bottom-[20%]",
+    ratingPos: "top-[12%] left-[6%]", 
+    imagePos: "top-[16%] w-[270px]",   
+    namePos: "top-[65%]",
+    statsPos: "bottom-[15%]",
     textColor: "text-[#1a1a1a]" // Change if back card is dark
   }
 };
@@ -48,7 +48,7 @@ const AcademyCardsPage = () => {
         </div>
         <input
           type="text"
-          placeholder={t("players.search.placeholder") || "Search players..."}
+          placeholder={t("search players ") || "Search players..."}
           className="w-full bg-[#1e293b] text-white border-2 border-slate-700 rounded-full py-3 pl-12 pr-6 outline-none focus:border-primary transition-all font-medium"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -119,7 +119,7 @@ const FifaCard3D = ({ player }: { player: any }) => {
     >
       {/* INNER CONTAINER THAT ROTATES */}
       <div 
-        className="relative w-full h-full transition-all duration-700 shadow-2xl rounded-[30px]"
+        className="relative w-full h-full transition-all duration-700  rounded-[30px]"
         style={{ 
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"
@@ -150,17 +150,20 @@ const FifaCard3D = ({ player }: { player: any }) => {
 };
 
 // --- REUSABLE CARD FACE COMPONENT ---
-// This renders the actual design so we don't write the code twice
 const CardFace = ({ layout, data }: { layout: any, data: any }) => (
   <div 
     className="w-full h-full bg-no-repeat ltr"
     style={{ 
       backgroundImage: `url('${layout.bg}')`, 
-      backgroundSize: 'cover',
+      // This forces the image to stretch/shrink to the container size exactly
+      backgroundSize: '100% 100%', 
       backgroundPosition: 'center',
       fontFamily: "'Oswald', sans-serif" 
     }}
   >
+    {/* ... rest of the code remains the same ... */}
+
+  
     {/* Rating */}
     <div className={`absolute ${layout.ratingPos} ${layout.textColor} leading-none flex flex-col items-center z-10`}>
       <span className="text-6xl font-black">{data.rating}</span>
@@ -174,13 +177,13 @@ const CardFace = ({ layout, data }: { layout: any, data: any }) => (
 
     {/* Name */}
     <div className={`absolute ${layout.namePos} w-full text-center`}>
-      <h2 className={`text-3xl font-black ${layout.textColor} tracking-tighter truncate px-6 uppercase`}>
+      <h2 className={`text-3xl font-black ${layout.textColor} tracking-tighter truncate px-6 `}>
         {data.name}
       </h2>
     </div>
 
     {/* Stats */}
-    <div className={`absolute ${layout.statsPos} w-full px-10`}>
+    <div className={`absolute ${layout.statsPos} w-full px-7`}>
       <div className={`grid grid-cols-6 gap-0 pt-2 ${layout.textColor}`}>
         <StatCol label="PAC" val={data.stats.pac} />
         <StatCol label="SHO" val={data.stats.sho} />
@@ -191,8 +194,8 @@ const CardFace = ({ layout, data }: { layout: any, data: any }) => (
       </div>
     </div>
 
-    {/* Footer */}
-    <div className="absolute bottom-[14%] w-full flex justify-center items-center gap-6">
+    {/* flag */}
+    <div className="absolute bottom-[4%] w-full flex justify-center items-center gap-6">
       <img src={data.flag} alt="Flag" className="h-6 w-8 object-cover border border-black/10" />
       <img src={data.club} alt="Club" className="h-9 w-9 object-contain" />
     </div>
@@ -201,8 +204,8 @@ const CardFace = ({ layout, data }: { layout: any, data: any }) => (
 
 const StatCol = ({ label, val }: { label: string; val: number }) => (
   <div className="flex flex-col items-center inherit">
-    <span className="text-[15px] font-black leading-none opacity-80">{label}</span>
-    <span className="text-2xl font-black leading-none">{val}</span>
+    <span className="text-[17px] font-black leading-none opacity-80">{label}</span>
+    <span className="text-3xl font-black leading-none opacity-90">{val}</span>
   </div>
 );
 

@@ -6,9 +6,11 @@
     "rating": 99,
     "position": "CH",
     "image": "/images/players/trentimg.png",
+    "image2": "/images/players/trentimg.png",
     "flag": "/images/flags/lb.png",
     "club": "/images/main-logo.png",
-    "stats": { "pac": 99, "sho": 99, "pas": 99, "dri": 99, "def": 99, "phy": 99 }
+    "stats": { "pac": 99, "sho": 99, "pas": 99, "dri": 99, "def": 99, "phy": 99 },
+    "stats2": { "pac": 90, "sho": 85, "pas": 95, "dri": 92, "def": 88, "phy": 90 }
   },
   {
     "id": 2,
@@ -30,7 +32,8 @@
     "image": "/images/players/trentimg.png",
     "flag": "/images/flags/lb.png",
     "club": "/images/main-logo.png",
-    "stats": { "pac": 85, "sho": 82, "pas": 70, "dri": 88, "def": 45, "phy": 70 }
+    "stats": { "pac": 85, "sho": 82, "pas": 70, "dri": 88, "def": 45, "phy": 70 },
+    "stats2": { "pac": 92, "sho": 88, "pas": 75, "dri": 90, "def": 50, "phy": 75 }
   },
   {
     "id": 4,
@@ -58,12 +61,12 @@
     "id": 6,
     "name": "OMAR",
     "role": "trainee",
-    "rating": 79,
+    "rating": 77,
     "position": "CB",
     "image": "/images/players/trentimg.png",
     "flag": "/images/flags/lb.png",
     "club": "/images/main-logo.png",
-    "stats": { "pac": 68, "sho": 45, "pas": 60, "dri": 55, "def": 84, "phy": 88 }
+    "stats": { "pac": 69, "sho": 45, "pas": 60, "dri": 55, "def": 84, "phy": 88 }
   },
   {
     "id": 7,
