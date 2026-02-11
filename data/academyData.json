@@ -18,7 +18,7 @@
     "role": "coach",
     "rating": 99,
     "position": "CH",
-    "image": "/images/players/trentimg.png",
+    "image": "/images/players/messi.png",
     "flag": "/images/flags/lb.png",
     "club": "/images/main-logo.png",
     "stats": { "pac": 79, "sho": 91, "pas": 88, "dri": 87, "def": 56, "phy": 99 }
@@ -29,7 +29,7 @@
     "role": "trainee",
     "rating": 88,
     "position": "ST",
-    "image": "/images/players/trentimg.png",
+    "image": "/images/players/messi2.png",
     "flag": "/images/flags/lb.png",
     "club": "/images/main-logo.png",
     "stats": { "pac": 85, "sho": 82, "pas": 70, "dri": 88, "def": 45, "phy": 70 },
@@ -52,7 +52,7 @@
     "role": "trainee",
     "rating": 81,
     "position": "CM",
-    "image": "/images/players/trentimg.png",
+    "image": "/images/players/messi3.png",
     "flag": "/images/flags/lb.png",
     "club": "/images/main-logo.png",
     "stats": { "pac": 76, "sho": 72, "pas": 88, "dri": 82, "def": 70, "phy": 75 }

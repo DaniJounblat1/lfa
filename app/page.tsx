@@ -158,7 +158,7 @@ export default function Home() {
       <section className="py-20 bg-slate-900 overflow-hidden">
         <div className="container mx-auto px-4 text-center">
            <h2 className="text-3xl font-bold mb-12 text-white italic uppercase tracking-widest">
-             {t("home.players.title") || "Our Elite Trainees"}
+             {t("Our Elite Trainees") || "Our Elite Trainees"}
            </h2>
            
            {/* Passing the 6 random players to your component */}
@@ -171,7 +171,7 @@ export default function Home() {
            <div className="mt-20">
              <Link href="/players"> 
                <Button className="bg-primary hover:bg-primary/80 text-secondary font-black text-xl px-12 py-8 rounded-full transition-all hover:scale-110 shadow-lg shadow-primary/20">
-                 {t("home.players.showAll") || "SHOW ALL PLAYERS"} <ArrowRight size={24} className="ml-2" />
+                 {t("Show All Players") || "SHOW ALL PLAYERS"} <ArrowRight size={24} className="ml-2" />
                </Button>
              </Link>
            </div>

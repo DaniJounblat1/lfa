@@ -7,13 +7,15 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import WhatsAppButton from "@/components/whatsapp-button"
 import { LanguageProvider } from "@/contexts/language-context"
+// 1. Import the Preloader component
+import Preloader from "@/components/preloader"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Labweh Football Academy",
   description: "Local football academy in Labweh, Lebanon - Learn football skills in a fun environment",
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -26,6 +28,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <LanguageProvider>
+            {/* 2. Add Preloader here so it sits on top of everything */}
+            <Preloader />
+            
             <Navbar />
             <main>{children}</main>
             <Footer />

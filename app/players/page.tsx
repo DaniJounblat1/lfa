@@ -10,7 +10,7 @@ const layouts = {
   back: {
     bg: "/images/cardbg.png",
     ratingPos: "top-[14%] left-[9%]", 
-    imagePos: "top-[17%] w-[270px]",   
+    imagePos: "top-[13%] w-[270px]",   
     namePos: "top-[65%]",
     statsPos: "bottom-[15%]",
     textColor: "text-[offwhite]" 
@@ -18,9 +18,9 @@ const layouts = {
   front: {
     bg: "/images/cardbg1.png",
     ratingPos: "top-[12%] left-[6%]", 
-    imagePos: "top-[16%] w-[270px]",   
+    imagePos: "top-[13%] w-[270px]",   
     namePos: "top-[65%]",
-    statsPos: "bottom-[15%]",
+    statsPos: "bottom-[16%]",
     textColor: "text-[#1a1a1a]" 
   }
 };
@@ -47,7 +47,7 @@ const AcademyCardsPage = () => {
         </div>
         <input
           type="text"
-          placeholder={t("players.search.placeholder") || "Search players..."}
+          placeholder={t("Search Players") || "Search players..."}
           className="w-full bg-[#1e293b] text-white border-2 border-slate-700 rounded-full py-3 pl-12 pr-6 outline-none focus:border-primary transition-all font-medium"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -58,7 +58,7 @@ const AcademyCardsPage = () => {
       {coaches.length > 0 && (
         <section>
           <h2 className="text-2xl font-black text-white uppercase italic mb-8 border-l-4 border-yellow-500 pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4">
-            {t("players.section.coaches") || "Technical Staff"}
+            {t("coaches") || "Technical Staff"}
           </h2>
           <div className="grid grid-cols-2 gap-4 md:gap-10 justify-items-center perspective-container">
             {coaches.map((player) => (
@@ -74,7 +74,7 @@ const AcademyCardsPage = () => {
       {students.length > 0 && (
         <section>
           <h2 className="text-2xl font-black text-white uppercase italic mb-8 border-l-4 border-blue-500 pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4">
-            {t("players.section.trainees") || "Academy Trainees"}
+            {t("trainees") || "Academy Trainees"}
           </h2>
           <div className="grid grid-cols-2 gap-4 md:gap-10 justify-items-center perspective-container">
             {students.map((player) => (
@@ -95,7 +95,7 @@ const AcademyCardsPage = () => {
   );
 };
 
-// --- EXPORTED COMPONENTS (So Home Page can use them) ---
+// --- EXPORTED COMPONENTS ---
 
 export const CardWrapper = ({ children }: { children: React.ReactNode }) => (
   <div className="scale-[0.45] xs:scale-[0.55] sm:scale-75 md:scale-90 lg:scale-100 origin-top h-[240px] xs:h-[280px] sm:h-[400px] md:h-[480px] lg:h-[520px] perspective-[1000px]">
@@ -142,7 +142,7 @@ export const FifaCard3D = ({ player }: { player: any }) => {
   );
 };
 
-const CardFace = ({ layout, data }: { layout: any, data: any }) => (
+export const CardFace = ({ layout, data }: { layout: any, data: any }) => (
   <div 
     className="w-full h-full bg-no-repeat ltr"
     style={{ 
@@ -152,21 +152,29 @@ const CardFace = ({ layout, data }: { layout: any, data: any }) => (
       fontFamily: "'Oswald', sans-serif" 
     }}
   >
+    {/* Rating */}
     <div className={`absolute ${layout.ratingPos} ${layout.textColor} leading-none flex flex-col items-center z-10`}>
       <span className="text-6xl font-black">{data.rating}</span>
       <span className="text-2xl font-bold uppercase">{data.position}</span>
     </div>
 
-    <div className={`absolute ${layout.imagePos} left-0 right-0 mx-auto flex items-end justify-center`}>
-      <img src={data.image} alt={data.name} className="w-full h-full object-contain drop-shadow-2xl" />
+    {/* Standardized Image Container */}
+    <div className={`absolute ${layout.imagePos} left-0 right-0 mx-auto flex items-end justify-center h-[260px]`}>
+      <img 
+        src={data.image} 
+        alt={data.name} 
+        className="h-full w-auto object-contain drop-shadow-2xl max-w-full" 
+      />
     </div>
 
+    {/* Name */}
     <div className={`absolute ${layout.namePos} w-full text-center`}>
       <h2 className={`text-3xl font-black ${layout.textColor} tracking-tighter truncate px-6 uppercase`}>
         {data.name}
       </h2>
     </div>
 
+    {/* Stats */}
     <div className={`absolute ${layout.statsPos} w-full px-7`}>
       <div className={`grid grid-cols-6 gap-0 pt-2 ${layout.textColor}`}>
         <StatCol label="PAC" val={data.stats.pac} />
@@ -178,14 +186,15 @@ const CardFace = ({ layout, data }: { layout: any, data: any }) => (
       </div>
     </div>
 
-    <div className="absolute bottom-[4%] w-full flex justify-center items-center gap-6">
-      <img src={data.flag} alt="Flag" className="h-6 w-8 object-cover border border-black/10" />
-      <img src={data.club} alt="Club" className="h-9 w-9 object-contain" />
+    {/* Flag & Club */}
+    <div className="absolute bottom-[6%] w-full flex justify-center items-center gap-6">
+      <img src={data.flag} alt="Flag" className="h-7 w-10 object-cover border border-black/10" />
+      <img src={data.club} alt="Club" className="h-12 w-12 object-contain" />
     </div>
   </div>
 );
 
-const StatCol = ({ label, val }: { label: string; val: number }) => (
+export const StatCol = ({ label, val }: { label: string; val: number }) => (
   <div className="flex flex-col items-center inherit">
     <span className="text-[17px] font-black leading-none opacity-80">{label}</span>
     <span className="text-3xl font-black leading-none opacity-90">{val}</span>
